@@ -1,0 +1,227 @@
+:root{
+  --dark-n12:#3c3c3c;
+  --light-n12:#f2f2f2;
+  --secondary-font:p22-underground-sc, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  --main-font:nunito, sans-serif;
+  --gray-contrast:#e6e6e6;
+  --secondary-color:#e4412d;
+  --secondary-tone-1:#faa236;
+  --secondary-tone-2:#f58931;
+  --main-color:#28ab4a;
+  --dark-contrast:#302f3d;
+  /* --primary:; */
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+main {
+  max-width:100vw;
+  overflow-x: hidden;
+
+}
+
+h3{
+  font-size:18pt;
+}
+.row{
+   flex-shrink: 0;
+}
+.multiline{
+  white-space: pre-line;
+}
+
+
+/* .animSend{
+  max-height: 400px;
+} */
+.display-3 {
+  font-family: var(--secondary-font);
+  font-size: 40pt;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.wrapper {
+  min-width:320px;
+  width:100vw;
+  padding-left: -15px;
+  padding-right:-15px;
+}
+
+.btn-primary{
+  background:var(--secondary-color);
+  border-color: var(--secondary-color);
+  color:#fff;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary:not(:disabled):not(.disabled):active{
+  background: #cc3300;
+  border-color: #cc3300;
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+  background: #ce826e;
+  border-color: #ce826e;
+}
+.btn-outline-primary {
+  border-color: var(--secondary-color);
+  color:var(--secondary-color);
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled).active, .btn-outline-primary:not(:disabled):not(.disabled):active, .show>.btn-outline-primary.dropdown-toggle {
+    color: #fff;
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active,
+.btn-outline-primary:not(:disabled):not(.disabled):active{
+  background: #cc3300;
+  border-color: #cc3300;
+}
+
+/* Global modifiers */
+.sect_50{
+  min-height: 50vh;
+}
+.sect_60{
+  min-height: 60vh;
+}
+.sect_70{
+  min-height: 70vh;
+}
+.sect_80{
+  min-height: 80vh;
+}
+.border_dark_right{
+  border-right: 1px solid var(--dark);
+}
+.text_underlined{
+  text-decoration: underline;
+}
+.trans_sect{
+  position:absolute;
+  background-size:auto 100%;
+  background-repeat:no-repeat;
+  overflow-x: hidden;
+  left:0;
+  width:100vw;
+  height: 100vh;
+}
+.main_font{
+  font-family: var(--main-font);
+}
+.main_font_color{
+  color:var(--main-color);
+}
+.second_font_color{
+  color:var(--secondary-color);
+}
+
+.abs_cont{
+  position: relative;
+}
+.skew_section{
+  position:relative;
+}
+.skew_section:after{
+  position:absolute;
+  content: '';
+  left: 0;
+  right: 0;
+  top: 87%;
+  bottom: auto;
+  height:10%;
+  transform: skewY(-5deg);
+  z-index: 2;
+  background:#e9ecef;
+}
+.bg_text_main{
+  box-shadow: inset 0 -72px 0 0 var(--secondary-color);
+}
+
+/* animations */
+/**Fade in place**/
+@keyframes fadeInPlace {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 3vh, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.fadeInPlace {
+  animation-name: fadeInPlace;
+}
+
+/* animatons */
+
+/* Animations */
+
+.pulse {
+  box-shadow: 0 0 0 rgba(0,123,255, 0.4);
+  animation: pulse_white 4s infinite;
+}
+
+
+@keyframes pulse_white {
+  0% {
+    box-shadow: 0 0 0 0 rgba(92,219,111, .6);
+  }
+  70% {
+    box-shadow: 0 0 0 0 rgba(92,219,111, .6);
+  }
+  90% {
+      box-shadow: 0 0 0 30px rgba(0,123,255, 0);
+  }
+  100% {
+      box-shadow: 0 0 0 0 rgba(0,123,255, 0);
+  }
+}
+
+/*Entering*/
+.fadeTranslate-enter {
+  opacity: 0;
+  transform: translate(-3vw, 0);
+  position: fixed;
+}
+
+.fadeTranslate-enter.fadeTranslate-enter-active {
+  opacity: 1;
+  transform: translate(0, 0);
+  transition: all 500ms ease-in;
+}
+
+.fadeTranslate-exit {
+  opacity: 1;
+  position: fixed;
+  transform: translate(0, 0);
+}
+
+.fadeTranslate-exit.fadeTranslate-exit-active {
+  opacity: 0;
+  transform: translate(3vw, 0);
+  transition: all 400ms ease-in;
+}
+
+@media (max-width:576px ){
+  .display-4{
+    font-size: 24pt;
+  }
+  .display-3{
+    font-size: 28pt;
+  }
+}

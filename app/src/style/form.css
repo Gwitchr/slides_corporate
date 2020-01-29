@@ -1,0 +1,41 @@
+/*Animations for CSSTransitionGroup  */
+
+.question-enter {
+  opacity: 0.01;
+  transform: translateY(5vh);
+}
+.question-enter-active {
+  opacity: 1;
+  transform: translateY(0%);
+  transition: all 500ms ease-out;
+}
+.question-exit {
+  opacity: 1;
+  transform: translateY(0%);
+}
+.question-exit-active {
+  opacity: 0.01;
+  transform: translateY(5vh);
+  transition: all 500ms ease-out;
+}
+.message-appear {
+  opacity: 0.01;
+  transform: translateY(20%);
+}
+.message-appear-active {
+  opacity: 1;
+  transform: translateY(0%);
+  transition: all 600ms ease-out;
+}
+.message-exit {
+  opacity: 1;
+  transform: translateY(0%);
+}
+.message-exit-active {
+  opacity: 0.01;
+  transform: translateY(20%);
+  transition: all 600ms ease-out;
+}
+.mainQuestions{
+  min-height: 15vh;
+}

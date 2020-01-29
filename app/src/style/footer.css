@@ -1,0 +1,49 @@
+.footer {
+  background:#0A0E17;
+}
+
+.bg_yellow {
+  padding-top: 5rem ;
+  padding-bottom:5rem;
+  background-color: #F1B037;
+}
+
+.bg_blue {
+  padding-top: 5rem ;
+  padding-bottom:5rem;
+  background-color: #20244C;
+}
+
+.icon_footer, .link_footer{
+  color:#cfcfcf;
+  font-weight: 200;
+}
+
+.link_footer:hover{
+  color:#E24B23
+}
+
+.icon_footer, .link_footer_b{
+  color:#20244C;
+  font-weight: 200;
+  display: inline-block;
+}
+
+.link_footer_b:hover{
+  color:#E24B23
+}
+.title_footer{
+  font-size: 16pt;
+  font-weight: 700;
+  font-style: normal;
+  color:#cfcfcf;
+}
+
+.nav-link.disabled.link_footer,.nav-link.link_footer{
+  padding:0;
+  display: inline
+}
+
+.logo-footer{
+  max-width: 40vw;
+}

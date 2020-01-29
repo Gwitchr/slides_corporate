@@ -1,0 +1,183 @@
+/* misc */
+.selectable {
+  cursor: pointer;
+}
+
+/* Formas */
+input.form-control.custom, textarea.form-control.custom {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #b6f235;
+    border-radius: 0;
+    /* color:#fff; */
+}
+
+.custom_select{
+  padding-right: calc(1.5em + .75rem);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='gray' d='M2.2,3.1h3.5c0.2,0,0.3,0.2,0.2,0.4L4.2,5.3c-0.1,0.1-0.2,0.1-0.3,0L2.1,3.5C1.9,3.4,2,3.1,2.2,3.1L2.2,3.1z M8,0.9v6.3C8,7.6,7.6,8,7.1,8H0.9C0.4,8,0,7.6,0,7.1V0.9C0,0.4,0.4,0,0.9,0h6.3C7.6,0,8,0.4,8,0.9z M7.1,7V1c0-0.1,0-0.1-0.1-0.1H1c-0.1,0-0.1,0-0.1,0.1V7c0,0.1,0,0.1,0.1,0.1H7C7.1,7.1,7.1,7.1,7.1,7z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right calc(.375em + .1875rem) center;
+  background-size: calc(.75em + .375rem) calc(.75em + .375rem);
+}
+
+/* Custom elements */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  min-width: 60px;
+}
+.switch-min{
+  width: 32px;
+  height: 17px;
+}
+
+.switch input {display:none;}
+
+.slider:before {
+  position: absolute;
+  color:#3c3c3c;
+  padding-left:5px;
+  padding-top:5px;
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition:all .4s ease-in;
+}
+
+.slider-min:before {
+  padding-left:2px;
+  padding-top:1px;
+  height:13px;
+  width:13px;
+  left: 2px;
+  bottom: 2px;
+  content:''
+}
+
+input:checked + .slider {
+  background-color: #007bff;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+input:checked + .slider-min:before {
+  content:'';
+  -webkit-transform: translateX(14px);
+  -ms-transform: translateX(14px);
+  transform: translateX(14px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+.slider_range {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 2px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider_range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width:25px;
+    height:25px;
+    border-radius: 50%;
+    border:1px solid var(--secondary-color);
+    background:var(--secondary-color);
+    cursor: pointer;
+}
+
+.slider_range::-moz-range-thumb {
+    width:25px;
+    height:25px;
+    border-radius: 50%;
+    border:1px solid var(--secondary-color);
+    background:var(--secondary-color);
+    cursor: pointer;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s ease-in;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s ease-in;
+}
+
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+/*Custom input*/
+.custom-file-label:before{
+  content:"Navegar"
+}
+.custom-file-label:after{
+  content:"Seleccionar archivos..."
+}
+
+.custom-file-label.hover {
+  box-shadow: 0 0 0 .2rem rgba(11,210,255,.5);
+}
+.got-file:after{
+  content:"Archivo cargado." !important;
+}
+.custom-file-label.got-files:before{
+  content:"Cambiar" !important;
+}
+.custom-file-label.got-file:before{
+  content:"Cambiar" !important;
+}
+.got-files:after{
+  content:"Archivos cargados." !important;
+}

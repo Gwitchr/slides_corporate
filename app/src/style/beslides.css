@@ -1,0 +1,143 @@
+.cont_beslides{
+  transition: filter .2s ease;
+}
+.blurred{
+  filter:blur(5px);
+  transition: filter .2s ease;
+}
+
+.info_cont{
+  height: 100vh;
+  max-height: 100vh;
+  z-index: 2;
+}
+
+.graph_cont{
+  overflow-x: hidden;
+  overflow-y: scroll;
+  max-height: 100vh;
+}
+.graph_wrapper{
+  max-width: 100%;
+  height: 100vh;
+}
+
+.chart_cont{
+  min-width: 60vw;
+}
+
+.intro_slide{
+  min-height: 100vh;
+}
+
+.beslide_graph{
+  max-width: 100%;
+}
+
+.full_slide_graph{
+  width:60vw;
+  height:80vh;
+}
+
+.graph_img_anim{
+  min-width: 100%;
+  /* min-height:80vh; */
+}
+
+.client_img{
+  position: absolute;
+}
+
+/* custom elements */
+/* clients */
+.img_client{
+  width:8vw;
+  /* max-width: 200px; */
+  /* min-width: 100px; */
+  /* max-height: 150px; */
+  /* height: auto;  */
+}
+/* end of custom elements */
+
+/* intro text */
+.slide_data-enter {
+  opacity: 0;
+  transform: translate3d(0, 3vh, 0);
+}
+
+.slide_data-enter-active {
+  opacity: 1;
+  transform: none;
+  transition: all 600ms ease-in;
+}
+.slide_data-exit,.slide_data-exit-active {
+  opacity: 0;
+  position: fixed;
+  transform: translate(0, 0);
+}
+
+/* .slide_data-exit {
+  opacity: 1;
+  position: fixed;
+  transform: translate(0, 0);
+}
+
+.fadeTranslate-exit-active {
+  opacity: 0;
+  transform: translate(3vw, 0);
+  transition: all 400ms ease-in;
+} */
+
+/* intro animations */
+
+.beslide_graph_left-enter {
+  opacity: 0;
+  transform: translate(-3vw, 0);
+  position: fixed;
+}
+.beslide_graph_right-enter {
+  opacity: 0;
+  transform: translate(3vw, 0);
+  position: fixed;
+}
+
+.beslide_graph_right-enter-active,.beslide_graph_left-enter-active {
+  opacity: 1;
+  transform: translate(0, 0);
+  transition: all 300ms ease-in;
+}
+
+.beslide_graph_right-exit,.beslide_graph_left-exit {
+  opacity: 1;
+  position: fixed;
+  transform: translate(0, 0);
+}
+
+.beslide_graph_left-exit-active {
+  opacity: 0;
+  transform: translate(3vw, 0);
+  transition: all 300ms ease-in;
+}
+
+.beslide_graph_right-exit-active {
+  opacity: 0;
+  transform: translate(-3vw, 0);
+  transition: all 300ms ease-in;
+}
+
+@media(max-width:576px){
+  .graph_wrapper{
+    min-width: 100%;
+    height: 40vh;
+  }
+  .chart_cont{
+    min-width: 100vw;
+  }
+  .info_cont{
+    max-height: 50vh;
+  }
+  .full_slide_graph{
+    width:100vw;
+    height:50vh;
+  }
+}

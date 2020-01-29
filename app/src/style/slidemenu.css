@@ -1,0 +1,26 @@
+/* Slide Menu with form */
+.slideout {
+  position:fixed;
+  top:0;
+  padding-top: 5rem;
+  overflow-y: scroll!important;
+  overflow-x: hidden;
+  z-index: 1000;
+  right:0;
+  width:70vw;
+  height:100vh;
+  padding-bottom: 5rem;
+  background-color:var(--light);
+  transform:translateX(100%);
+  transition:all .5s ease-in;
+  box-shadow: 2px 0 10px rgba(0,0,0,.3);
+}
+.slidein {
+  transform:translateX(0);
+}
+
+@media (max-width:576px ){
+  .slidein{
+    width:100vw;
+  }
+}

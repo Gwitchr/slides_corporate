@@ -4,11 +4,11 @@
  * Module dependencies.
  */
 
-var app = require('../app');
+var app = require('../src');
 var debug = require('debug')('beslides:server');
 var http = require('http');
 
-/**
+/**aindex.j
  * Get port from environment and store in Express.
  */
 
@@ -87,4 +87,5 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
+  console.log('Listening on ' + bind);
 }

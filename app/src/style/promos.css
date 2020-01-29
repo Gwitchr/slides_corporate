@@ -1,0 +1,47 @@
+/* Promo with form */
+.promo_out {
+  position:fixed;
+  /* top:0; */
+  padding-top: 1rem;
+  overflow-y: scroll!important;
+  overflow-x: hidden;
+  z-index: 1000;
+  bottom:0;
+  left:0;
+  right:0;
+  width:100vw;
+  height:40vh;
+  background-image:linear-gradient(to right,var(--dark-contrast),#333f55 );
+  transform:translateY(100%);
+  transition:all .5s ease-in;
+  box-shadow: 2px 0 10px rgba(0,0,0,.3);
+}
+.promo_in {
+  transform:translateY(0);
+}
+
+.bg_accent{
+  position:absolute;
+  background-size:cover;
+  background-position:left;
+  background-repeat:no-repeat;
+  overflow-x: hidden;
+  right:0;
+  /* left:0; */
+  bottom:0;
+  /* top:0; */
+  width:40%;
+  height:100%;
+}
+
+
+/* titles and subtitles */
+.title_promo{
+  font-family: var(--secondary-font)
+}
+
+@media (max-width:576px ){
+  .promo_out{
+    height:60vh;
+  }
+}

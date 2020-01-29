@@ -1,0 +1,62 @@
+.nav_bar{
+  /* background-color:transparent; */
+  box-shadow: none;
+}
+nav.navbar.nav_bar{
+  /* background: linear-gradient(to right, #ffff00,#ff9600); */
+  background-color:transparent;
+  background-size:100vw;
+  background-repeat:no-repeat;
+  min-height:8vh;
+  z-index: 1001;
+}
+nav.navbar.nav_bar.nav_below{
+  transition: all .5s ease-in;
+  background-color: var(--dark-contrast);
+  /* background: #ccc; */
+  box-shadow: 1px 1px 30px rgba(0,0,0,.3);
+}
+
+nav.navbar.nav_bar .menu_toggle path {
+  stroke: var(--dark-n12)
+}
+
+nav.navbar.nav_bar.nav_below .menu_toggle path {
+  stroke: var(--light-n12)
+}
+.logo{
+  min-width:40px;
+  width:4vw;
+}
+/* layer from the logo */
+.nav_below .cls-16{
+  fill:var(--light-n12);
+  /* mix-blend-mode: difference; */
+}
+
+.nav.navbar .nav-item{
+  mix-blend-mode:difference;
+  /* color:#fff; */
+}
+.nav-link{
+  color:var(--dark-n12);
+  transition: all .2s ease;
+}
+.nav_below .nav-link{
+  color:var(--light-n12);
+}
+.nav-link.selected{
+  border-bottom:2px solid #fff;
+}
+.toggle-icon-white {
+  color:white;
+}
+@media (max-width:576px ){
+  nav.navbar.nav_bar{
+      background-size:cover;
+  }
+  .logo{
+    min-width:60px;
+    width:8vw;
+  }
+}

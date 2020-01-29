@@ -1,0 +1,6 @@
+export {default as NavbCont} from './NavbCont'
+export {default as ContactCont} from './ContactCont'
+export {default as SubscribeCont} from './SubscribeCont'
+export {default as ToasterCont} from './ToasterCont'
+export {default as PromosCont} from './PromosCont'
+export {default as BeSlidesCont} from './BeSlidesCont'

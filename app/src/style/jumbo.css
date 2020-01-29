@@ -1,0 +1,38 @@
+.jumbo_anim{
+  /* overflow-x:hidden; */
+  margin-bottom: 12rem;
+  /* width:100vw; */
+}
+
+.jumbo_100{
+  min-height: 100vh;
+}
+
+.jumbo_80{
+  min-height: 80vh;
+}
+
+.above_text b{
+  font-family: var(--main-font);
+  /* font-weight:400; */
+  /* font-style: regular; */
+}
+
+.anim_bg{
+  /* background: orange; */
+  position: absolute;
+  /* top:0; */
+  right:0;
+  left:0;
+  bottom:0;
+  margin-bottom:-12%;
+  width:100vw;
+  /* z-index: 3; */
+}
+
+@media (max-width:576px ){
+  .anim_bg{
+    height:80vh;
+    margin-bottom:-25%;
+  }
+}

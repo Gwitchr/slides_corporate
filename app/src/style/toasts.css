@@ -1,0 +1,40 @@
+.toast_global{
+  position: absolute;
+  min-width:220px;
+  max-height: 120px;
+  right:0;
+  transition: margin .3s ease-in;
+}
+.toast_global .progress .progress-bar{
+  transition: width 5s ease;
+}
+.toast_cont{
+  right:2rem;
+  left:auto;
+  top:5rem;
+  /* width:35vw; */
+}
+
+/* toast item animations */
+
+.toast_global {
+  opacity: 0;
+  transform: translateX(130%);
+  transition: all 500ms;
+
+}
+ .toast_global.show {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 500ms;
+}
+
+/* This fires as soon as the this.state.showList is false */
+.toast_global.toast_item-exit {
+  transform: translateX(0);
+}
+/* fires as element leaves the DOM*/
+.toast_global.toast_item-exit-active {
+  transform: translateX(130%);
+  transition: all 500ms;
+}
