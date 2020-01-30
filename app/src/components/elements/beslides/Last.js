@@ -27,7 +27,7 @@ function Last({toggle,reset,cardImg,
   }
   return (
     <Row className="justify-content-center align-items-center text-center text-md-left my-auto pt-5 h-100">
-      <Col xs={12} sm={6}>
+      <Col xs={12} sm={5}>
         <Card className="animated fadeInPlace shadow bg-light mb-2">
         <CardImg src={cardImg}/>
         <CardBody>
@@ -57,7 +57,7 @@ function Last({toggle,reset,cardImg,
           </Button>
       </CardFooter>
       </Card></Col>
-      <Col xs={12} sm={6}>
+      <Col xs={12} sm={5}>
         <Card onClick={()=>toggle(true)} className="animated fadeInPlace shadow" inverse style={{ backgroundColor: '#333', borderColor: '#333' }}>
         <CardImg src={beslides} />
         <CardHeader>
