@@ -6,8 +6,8 @@ import {
   NavbarToggler,
   NavbarBrand,
   Nav,
-  NavItem,
-  NavLink as NvLnk
+  // NavItem,
+  // NavLink as NvLnk
  } from 'reactstrap';
 import {MenuToggle} from '../elements';
 // import logo from '../../assets/img/logo/logo_full.svg';
