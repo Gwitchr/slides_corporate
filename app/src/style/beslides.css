@@ -135,6 +135,7 @@
   }
   .info_cont{
     /* height: 50vh; */
+    min-height: 50vh;
     height: auto;
     max-height: 70vh;
   }
