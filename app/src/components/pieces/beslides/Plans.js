@@ -78,10 +78,10 @@ function Plans({setPlan,products,visible}){
                 product_id={_id}
                 id={front_id}
                 price={status==='offer'
-                  ?`${formatNmxn(offer_price)} ${currency_code}`
-                  :`${formatNmxn(price)} ${currency_code}`}
+                  ?`$${formatNmxn(offer_price)}`
+                  :`$${formatNmxn(price)}`}
                 prevPrice={status==='offer'
-                  ?`${formatNmxn(price)} ${currency_code}`
+                  ?`$${formatNmxn(price)}`
                   :null}
                 features={main_features}
                 status_message={status_message}

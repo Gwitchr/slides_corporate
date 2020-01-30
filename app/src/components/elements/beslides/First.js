@@ -5,10 +5,10 @@ import {motion} from 'framer-motion'
 
 function First({logo,company,title}){
   return(
-    <Row className="justify-content-center align-items-center text-center text-md-left my-auto w-75">
+    <Row className="justify-content-center align-items-center text-center text-md-left my-auto w-sm-75">
       <Col className="mb-3 text-right" xs={12} md={6}>
         <motion.img src={logo}
-          className="mr-3 img-fluid"
+          className="mr-sm-3 img-fluid"
           style={{
             // position:'absolute',
             height:'20vh'

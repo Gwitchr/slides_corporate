@@ -35,7 +35,7 @@ export const Footer=()=>{
                    <h5>Ubicación</h5>
                    <address className="">
                        <a href="https://goo.gl/maps/ot2PcktcSkLctbTE9">
-                         Workósfera, Cholula 35, La Paz, Puebla
+                         Cholula 35, La Paz. Puebla
                        </a>
                    </address>
 

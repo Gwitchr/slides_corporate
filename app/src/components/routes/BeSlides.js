@@ -127,7 +127,7 @@ function BeSlides({match:{path,url},history,location:{hash},beslides,info_beslid
   }
   return(
     <>
-      <SEO title="BeSlides" description="Compartir información de una manera profesional y efectiva"/>
+      <SEO title={info_beslides.name} description="Compartir información de una manera profesional y efectiva"/>
       <SlideMenu className="" slideMenu={slide} toggleMenu={toggleMenu}>
         {payment
           ?<PaymentHandlerCont visible={slide}/>
@@ -275,7 +275,7 @@ function BeSlides({match:{path,url},history,location:{hash},beslides,info_beslid
                                   :graphs.custom
                                   ?<div className="">
                                     {graphs.custom.clients
-                                      ?<Clients {...graphs.custom.clients}/>
+                                      ?<Clients isSmall={isSmall} {...graphs.custom.clients}/>
                                       :graphs.custom.map
                                       ?<Map {...graphs.custom.map}/>
                                       :null
@@ -295,7 +295,7 @@ function BeSlides({match:{path,url},history,location:{hash},beslides,info_beslid
               {/* Mobile version -------------------------------------- */}
               {isSmall&&beslides.length
                 ? <>
-                  {beslides.map((slide,i)=><Row className="d-flex d-sm-none" key={i}>
+                  {beslides.map((slide,i)=><Row className="d-flex d-sm-none" id={slide.identifier||'intro'} key={i}>
                     {slide.graphs
                       ?<Col xs={12} className="graph_cont animated fadeInPlace">
                           <div className="graph_wrapper d-flex flex-column justify-content-center align-items-center">
@@ -308,7 +308,7 @@ function BeSlides({match:{path,url},history,location:{hash},beslides,info_beslid
                               :slide.graphs.custom
                               ?<div>
                                 {slide.graphs.custom.clients
-                                  ?<Clients {...slide.graphs.custom.clients}/>
+                                  ?<Clients isSmall={isSmall} {...slide.graphs.custom.clients}/>
                                   :slide.graphs.custom.map
                                   ?<Map {...slide.graphs.custom.map}/>
                                   :null
@@ -322,8 +322,8 @@ function BeSlides({match:{path,url},history,location:{hash},beslides,info_beslid
                     </Col>
                     :null}
                     <Col xs={12} className={`info_cont px-5 ${intro?'':'bg-light'} d-flex flex-column justify-content-center align-items-center `}>
-                      {slide.data
-                        ? <Row className="my-auto">
+                      {slide.data.title
+                        ? <Row className="my-auto row_data">
                               <Col className="px-0 py-5">
 
                                        <div>
@@ -371,7 +371,7 @@ function BeSlides({match:{path,url},history,location:{hash},beslides,info_beslid
                           </Row>
                         : slide.intro
                         ? slide.intro.first
-                        ? <First
+                        ?<First
                             title={info_beslides.title}
                             company={info_beslides.customer.company}
                             logo={slide.intro&&slide.intro.logo}/>

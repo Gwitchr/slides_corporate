@@ -4,6 +4,7 @@ import {
   Badge,
   Card,
   CardImg,
+  CardFooter,
   CardBody,
   CardText,
   CardTitle,
@@ -55,7 +56,7 @@ function PlanCard({
             <del className="text-muted">{prevPrice}</del> <br/>
             <Badge className="my-2" color="primary" pill>{status_message}</Badge> <br/>
           </small> :null}
-          {price} <br/> <small className="">/ IVA incluido</small>
+          {price}
         </CardTitle>
         <Button
           onClick={()=>setPlan({plan,product_id})}
@@ -64,6 +65,12 @@ function PlanCard({
           Elegir
         </Button>
       </CardBody>
+      <CardFooter>
+        <small>
+          *Todos los precios están en pesos mexicanos (mxn) <br/>
+          **Los precios ya incluyen IVA
+        </small>
+      </CardFooter>
     </Card>
   )
 }

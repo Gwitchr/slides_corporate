@@ -39,10 +39,10 @@ function PromoCoupons({closePromo,startOffer,setToast,isFetching,message}){
     <>
       <h3 className="title_promo">
         <b>
-          ¡Obtén 200 mxn de descuento en tu primera compra de Beslides!
+          ¡Obtén $200 de descuento en tu primera compra de Beslides!
           <br/>
           <small>
-            Comparte tu código y recibe 100 mxn adicionales para tu siguiente compra y 100 mxn para cada persona que lo utilice.
+            Comparte tu código y recibe $100 adicionales para tu siguiente compra y $100 para cada persona que lo utilice.
           </small>
         </b>
       </h3>
@@ -88,6 +88,9 @@ function PromoCoupons({closePromo,startOffer,setToast,isFetching,message}){
       <br/>
       <small className={currTime<60000?'text-danger':''}>
         <FontAwesomeIcon icon="stopwatch"/> Quedan&nbsp;{`${minutes}:${seconds>10?seconds:`0${seconds}`}`}
+      </small> <br/>
+      <small>
+        *Todos los precios están en pesos mexicanos (mxn)
       </small>
     </>
   )

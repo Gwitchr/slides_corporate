@@ -6,11 +6,13 @@ import {
 import {motion} from 'framer-motion'
 // import {randomIntegerInterval as randomI} from '../../../utils';
 
-function Clients({clients=[],duration}){
+function Clients({clients=[],duration,isSmall}){
   const contRef=useRef()
   const [contWidth,setContWidth] = useState(0)
   const [contHeight,setContHeight] = useState(0)
   const [canStart,setCanStart] = useState(false)
+  const rows = isSmall?3:5
+  const fSlow = isSmall?2.8:.6
   useEffect(()=>{
     if(contRef.current){
       let rect = contRef.current.getBoundingClientRect()
@@ -25,7 +27,7 @@ function Clients({clients=[],duration}){
   const animStates = {
     start:({x,y})=>({
       x:-300,
-      y:(y*Math.floor(contHeight/5))
+      y:(y*Math.floor(contHeight/rows))
     }),
     finish:({x})=>({
       x
@@ -41,14 +43,14 @@ function Clients({clients=[],duration}){
             href={link}
             className="my-2 client_img"
             variants={animStates}
-            custom={{x:contWidth,y:i%5}}
+            custom={{x:contWidth,y:i%rows}}
             initial={"start"}
             animate={"finish"}
             transition={{
               duration,
               // duration:1+randomI(duration,(duration+i)),
               // delay:i?i+randomI((i),(duration+i)):0,
-              delay:i*.6,
+              delay:i*fSlow,
               // delay:i,
               // duration:randomI(i,(duration)),
               // delay:i?randomI((i),(duration+i)):0,
