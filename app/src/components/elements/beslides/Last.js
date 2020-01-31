@@ -48,10 +48,12 @@ function Last({toggle,reset,cardImg,
             Volver a ver BeSlides
           </Button>
           <Button
-            onClick={()=>toggle(false)}
-            // tag="a"
+            // onClick={()=>toggle(false)}
+            tag="a"
              color="primary"
-            // href={companyData?companyData.link:''}
+             target="_blank"
+             rel="noopener noreferrer"
+            href={companyData?companyData.contact_link:''}
             >
             Contáctanos
           </Button>
