@@ -20,6 +20,7 @@ import data from '../../../assets/bodym/sending.json'
 
 import colorOptions from '../../../constants/colors';
 import industryOptions from '../../../constants/industries'
+import usageOptions from '../../../constants/usage'
 import styleOptions from '../../../constants/styles'
 
 const duration = 500
@@ -45,38 +46,47 @@ export default class OrderForm extends Component {
         {val:'Amarillo',img:colorOptions.yellow},
       ],
       graphStyles:[
-        {val:'3D',img:styleOptions.style1},
-        {val:'Abstracto',img:styleOptions.style1},
-        {val:'Minimalista',img:styleOptions.style1},
-        {val:'Femenino',img:styleOptions.style1},
-        {val:'Flat',img:styleOptions.style1},
-        {val:'Juguetón',img:styleOptions.style1},
-        {val:'Corporativo',img:styleOptions.style1},
-        {val:'Retro/Vintage',img:styleOptions.style1},
-        {val:'Natural/Eco',img:styleOptions.style1},
+        {val:'3D',img:styleOptions.threeD},
+        {val:'Abstracto',img:styleOptions.abstract},
+        {val:'Minimalista',img:styleOptions.minimal},
+        {val:'Femenino',img:styleOptions.femenine},
+        {val:'Masculino',img:styleOptions.masculine},
+        {val:'Juguetón',img:styleOptions.sweet},
+        {val:'Corporativo',img:styleOptions.corporate},
+        {val:'Retro/Vintage',img:styleOptions.retro},
+        {val:'Natural/Eco',img:styleOptions.green},
+        {val:'Geométrico',img:styleOptions.geometric},
+        {val:'Plano',img:styleOptions.flat},
+        {val:'Fotográfico',img:styleOptions.photo},
       ],
       industries:[
         {val:'Salud',img:industryOptions.health},
-        {val:'Viajes',img:industryOptions.health},
-        {val:'Deportes',img:industryOptions.health},
-        {val:'Compras',img:industryOptions.health},
-        {val:'Inmobiliario',img:industryOptions.health},
-        {val:'Mascotas',img:industryOptions.health},
-        {val:'Educación',img:industryOptions.health},
-        {val:'Legal',img:industryOptions.health},
-        {val:'Sociales',img:industryOptions.health},
+        {val:'Inmobiliario',img:industryOptions.realstate},
+        {val:'Construcción',img:industryOptions.construction},
+        {val:'Químicos',img:industryOptions.chemistry},
+        {val:'Legal',img:industryOptions.legal},
+        {val:'Comida',img:industryOptions.food},
+        {val:'Educación',img:industryOptions.education},
+        {val:'Automotriz',img:industryOptions.automotive},
+        {val:'ONG',img:industryOptions.ngo},
+        {val:'Tecnología',img:industryOptions.tech},
+        {val:'Finanzas',img:industryOptions.finance},
+        {val:'Publicidad',img:industryOptions.advertising},
+        {val:'Profesional',img:industryOptions.professional},
+        {val:'Agricultura',img:industryOptions.agriculture},
+
       ],
       usage:[
-        {val:'Portafolio',img:industryOptions.health},
-        {val:'Personal',img:industryOptions.health},
-        {val:'Artista/Fotógrafo',img:industryOptions.health},
-        {val:'Startup',img:industryOptions.health},
-        {val:'Negocio',img:industryOptions.health},
-        {val:'Consultoría',img:industryOptions.health},
-        {val:'Fashion',img:industryOptions.health},
-        {val:'Producto',img:industryOptions.health},
-        {val:'Servicios',img:industryOptions.health},
-        {val:'Evento social',img:industryOptions.health}
+        {val:'Portafolio',img:usageOptions.industry},
+        {val:'Personal',img:usageOptions.industry},
+        {val:'Artista/Fotógrafo',img:usageOptions.industry},
+        {val:'Startup',img:usageOptions.industry},
+        {val:'Negocio',img:usageOptions.industry},
+        {val:'Consultoría',img:usageOptions.industry},
+        {val:'Fashion',img:usageOptions.industry},
+        {val:'Producto',img:usageOptions.industry},
+        {val:'Servicios',img:usageOptions.industry},
+        {val:'Evento social',img:usageOptions.industry}
       ],
       // Questions
 

@@ -1,6 +1,7 @@
 import {fetchStatus,getErrors,setHJson} from '../utils'
 // let API = 'http://localhost:3015/api/v1'
-let API = 'https://www.n12.mx/api/v1'
+// let API = 'https://www.n12.mx/api/v1'
+let API = process.env.NODE_ENV==='production'?'https://www.n12.mx/api/v1':'http://localhost:3015/api/v1'
 // if(process.env.NODE_ENV==='production'){
 //   API = process.env.PROD_URL
 // }
