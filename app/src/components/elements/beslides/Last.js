@@ -26,7 +26,7 @@ function Last({toggle,reset,cardImg,
     setSelTab(tab)
   }
   return (
-    <Row className="justify-content-center align-items-center text-center text-md-left my-auto pt-5 h-100">
+    <Row className="justify-content-center align-items-center text-center text-md-left my-5 my-md-auto pt-5 h-100">
       <Col xs={12} sm={5}>
         <Card className="animated fadeInPlace shadow bg-light mb-2">
         <CardImg src={cardImg}/>

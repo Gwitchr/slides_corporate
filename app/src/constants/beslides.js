@@ -1,6 +1,6 @@
 export const DELAY_SLIDES = 5000
 
-export const MOBILE_BREAKPOINT=576
+export const MOBILE_BREAKPOINT=768
 
 export const TRANS_TIMEOUT = 600
 export const THROTTLE_SLIDES = 1500

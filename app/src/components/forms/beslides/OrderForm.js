@@ -580,7 +580,7 @@ export default class OrderForm extends Component {
     const {progr,possibleQ,currentQ,showMessage} = this.state
     return (
       <Container
-          onKeyUp={this.keyHandler}
+          onKeyDown={this.keyHandler}
           autoFocus
           className="d-flex flex-column justify-content-center py-5 animated fadeInPlace">
           <Row className="my-4 mainQuestions align-items-center justify-content-center">

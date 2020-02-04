@@ -6,6 +6,11 @@
   transition: filter .2s ease;
 }
 
+.logo_intro{
+  width:auto;
+  height: 25vh;
+}
+
 .info_cont{
   height: 100vh;
   max-height: 100vh;
@@ -149,7 +154,7 @@
   transition: all 300ms ease-in;
 }
 
-@media(max-width:576px){
+@media (max-width:768px ){
   .graph_wrapper{
     min-width: 100%;
     height: 60vh;
@@ -171,5 +176,9 @@
   }
   .img_client{
     width:30vw;
+  }
+  .logo_intro{
+    width:60vw;
+    height:auto;
   }
 }

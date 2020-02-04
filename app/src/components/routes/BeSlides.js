@@ -87,10 +87,10 @@ function BeSlides({match:{path,url},history,location:{hash},beslides,info_beslid
   useEffect(()=>{
     if(autoPlay){
       autoChange(beslides[currSlide].delay)
-      setCurrTime(100)
     } else {
       clearTimeout(changer.current)
     }
+    setCurrTime(100)
     if(identifier){
       setURLIdentifier()
     }
@@ -162,8 +162,8 @@ function BeSlides({match:{path,url},history,location:{hash},beslides,info_beslid
               tabIndex="0"
               autoFocus
               tag='main'
-              className={`p-0 cont_beslides ${slide?'blurred':''}`} fluid>
-              <Row className={`d-none d-sm-flex ${intro?'justify-content-center':''}`}>
+              className={`p-0 mb-5 mb-sm-auto cont_beslides ${slide?'blurred':''}`} fluid>
+              <Row className={`d-none d-md-flex ${intro?'justify-content-center':''}`}>
                 <Col xs={intro?colSize:4} className={`info_cont ${intro?'':'bg-light'} p-5 d-flex flex-column justify-content-center align-items-center `}>
                   {data.title
                     ? <Row className="px-0 my-auto w-100">
@@ -262,7 +262,7 @@ function BeSlides({match:{path,url},history,location:{hash},beslides,info_beslid
                             {/* <Button outline className="d-flex align-items-center">
                               <FontAwesomeIcon size="lg" icon={['far','play-circle']}/>
                             </Button> */}
-                            <Button outline>
+                            <Button disabled outline>
                               {` ${currSlide} de ${beslides.length-1} `}
                             </Button>
                             <Button onClick={toggleAutoPlay} outline className="d-flex align-items-center">
@@ -279,7 +279,7 @@ function BeSlides({match:{path,url},history,location:{hash},beslides,info_beslid
                           </ButtonGroup>
                           <Progress
                             color="info"
-                            className=""
+                            className="mx-1"
                             value={currTime}
                             style={{height:'2px'}}/>
                         </div>
@@ -337,7 +337,7 @@ function BeSlides({match:{path,url},history,location:{hash},beslides,info_beslid
               {/* Mobile version -------------------------------------- */}
               {isSmall&&beslides.length
                 ? <>
-                  {beslides.map((slide,i)=><Row className="d-flex d-sm-none" id={slide.identifier||'intro'} key={i}>
+                  {beslides.map((slide,i)=><Row className="d-flex d-md-none" id={slide.identifier||'intro'} key={i}>
                     {slide.graphs
                       ?<Col xs={12} className="graph_cont animated fadeInPlace">
                           <div className="graph_wrapper d-flex flex-column justify-content-center align-items-center">
@@ -385,7 +385,7 @@ function BeSlides({match:{path,url},history,location:{hash},beslides,info_beslid
 
 
                               {slide.data.nested&&slide.data.nested.title&&<>
-                                <div>
+                                <div onClick={toggleExpand}>
                                   <MenuToggle
                                     hasPulse={slide.data.nested&&slide.data.nested.hasPulse}
                                     collapse={collapse}/>

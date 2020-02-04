@@ -64,7 +64,7 @@ nav.navbar.nav_bar.nav_below .menu_toggle path {
   right:0;
   width:35vw;
   height:100vh;
-  background-color: #fff;
+  background-color: var(--gray);
   /* background-color:rgba(255,255,255,.8); */
   filter:blur(0);
   box-shadow: 2px 0 10px rgba(0,0,0,.3);

@@ -4,9 +4,9 @@ import {
   // Col
 } from 'reactstrap';
 import {motion} from 'framer-motion'
-// import {randomIntegerInterval as randomI} from '../../../utils';
+import {randomIntegerInterval as randomI} from '../../../utils';
 
-function Clients({clients=[],duration,isSmall}){
+function Clients({clients=[],duration,isRandom,isSmall}){
   const contRef=useRef()
   const [contWidth,setContWidth] = useState(0)
   const [contHeight,setContHeight] = useState(0)
@@ -47,10 +47,10 @@ function Clients({clients=[],duration,isSmall}){
             initial={"start"}
             animate={"finish"}
             transition={{
-              duration,
+              duration:isRandom?randomI(duration,(duration+i)):duration,
               // duration:1+randomI(duration,(duration+i)),
               // delay:i?i+randomI((i),(duration+i)):0,
-              delay:i*fSlow,
+              delay:isRandom?(i?randomI((i),(duration+i)):0):i*fSlow,
               // delay:i,
               // duration:randomI(i,(duration)),
               // delay:i?randomI((i),(duration+i)):0,

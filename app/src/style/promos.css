@@ -14,10 +14,11 @@
   background-image:linear-gradient(to right,var(--dark-contrast),#333f55 );
   transform:translateY(100%);
   transition:all .5s ease-in;
-  box-shadow: 2px 0 10px rgba(0,0,0,.3);
+  box-shadow:none;
 }
 .promo_in {
   transform:translateY(0);
+  box-shadow: 2px 0 10px rgba(0,0,0,.3);
 }
 
 .bg_accent{
