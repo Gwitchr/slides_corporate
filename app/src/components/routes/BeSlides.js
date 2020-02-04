@@ -1,10 +1,14 @@
 import React,{useState,useRef,useEffect} from 'react';
 import {CSSTransition,TransitionGroup} from 'react-transition-group'
-import {Container,Row,Col,Collapse,Button} from 'reactstrap';
+import {Container,Row,Col,Collapse,Button,ButtonGroup} from 'reactstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {motion} from 'framer-motion';
+// import {motion} from 'framer-motion';
 import {SEO} from '../elements';
-import {SlideMenu,Promos} from '../pieces';
+import {
+  SlideMenu,
+  Promos,
+  // PlayMenu
+} from '../pieces';
 import {
   PaymentHandlerCont
 } from '../../containers/beslides';
@@ -30,6 +34,7 @@ function BeSlides({match:{path,url},history,location:{hash},beslides,info_beslid
   const [direction,setDirection] = useState(false)
   const [collapse,setCollapse] = useState(false)
   const [canChange,setCanChange] = useState(true)
+  const [autoPlay,setAutoPlay] = useState(true)
 
   const [slide,slideIn] = useState(false)
   const [payment,setPayment] = useState(false)
@@ -71,24 +76,28 @@ function BeSlides({match:{path,url},history,location:{hash},beslides,info_beslid
     },delayDef)
 
     }
-    if(identifier){
-      // const pathPart = path.split('/')
-      // console.log('url',url)
-      history.push(`${url}#${identifier}`)
-    }
     return ()=>clearTimeout(changer.current)
   }
   useEffect(()=>{
-    // console.log('delay',beslides[currSlide].delay)
-    autoChange(beslides[currSlide].delay)
+    if(autoPlay){
+      autoChange(beslides[currSlide].delay)
+    } else {
+      clearTimeout(changer.current)
+    }
+    if(identifier){
+      setURLIdentifier()
+    }
     // eslint-disable-next-line
-  },[currSlide,beslides])
+  },[currSlide,beslides,autoPlay])
   useEffect(()=>{
       setSlideMatch()
     // eslint-disable-next-line
   },[beslides])
   const resetSlides=()=>{
     goToHandler(0)
+  }
+  const setURLIdentifier=()=>{
+    history.push(`${url}#${identifier}`)
   }
   const throttledChange=(nextPage)=>{
     if(canChange){
@@ -122,6 +131,9 @@ function BeSlides({match:{path,url},history,location:{hash},beslides,info_beslid
     await changeSlide(dir)
     if(collapse)toggleExpand()
   }
+  const toggleAutoPlay=()=>{
+    setAutoPlay(!autoPlay)
+  }
   const toggleExpand=()=>{
     setCollapse(!collapse)
   }
@@ -135,6 +147,7 @@ function BeSlides({match:{path,url},history,location:{hash},beslides,info_beslid
         }
 
       </SlideMenu>
+      {/* <PlayMenu/> */}
       <Promos/>
       {info_beslides._id
         ?  <Container
@@ -170,21 +183,23 @@ function BeSlides({match:{path,url},history,location:{hash},beslides,info_beslid
                                  timeout={TRANS_TIMEOUT+200}
                                  classNames={`slide_data`}
                                  appear>
-                                <p className="multiline mt-1 animated fadeInPlace">
-                                  {data.description}
-                                </p>
+                                   <>
+                                     <p className="multiline mt-1 animated fadeInPlace">
+                                       {data.description}
+                                     </p> <br/>
+                                     {data.additional_info&&data.additional_info.link&&
+                                     <a target="_blank" rel="noopener noreferrer" href={data.additional_info.link}>{data.additional_info.text}&nbsp;<FontAwesomeIcon icon="external-link-alt"/></a>}
+                                   </>
+
                               </CSSTransition>
                           </TransitionGroup>
                           {data.nested&&data.nested.title&&<>
-                            <div>
-                              <motion.span
-                                  initial={false}
-                                  animate={collapse?'open':'closed'}
-                                >
-                                <MenuToggle hasPulse={data.nested&&data.nested.hasPulse} toggle={toggleExpand}/>
-                              </motion.span>
+                            <div onClick={toggleExpand}>
+                                <MenuToggle
+                                hasPulse={data.nested&&data.nested.hasPulse}
+                                collapse={collapse}/>
                               &nbsp;
-                              <b onClick={toggleExpand}>
+                              <b>
                                 {data.nested.title}
                               </b>
                             </div>
@@ -227,22 +242,37 @@ function BeSlides({match:{path,url},history,location:{hash},beslides,info_beslid
                   {
                     !intro&&<Row className="w-100">
                       <Col className="d-flex justify-content-between mt-auto mb-4">
-                        <Button
-                          onClick={()=>changeHandler(false)}
-                          outline className="car_prev d-flex align-items-center">
-                          <FontAwesomeIcon
-                            size="lg" icon="chevron-left"/>
-                        </Button>
+
                         &nbsp;
-                        {` ${currSlide} de ${beslides.length-1} `}
+                        <div>
+                          <ButtonGroup className="text-dark">
+                            <Button
+                              onClick={()=>changeHandler(false)}
+                              outline className="d-flex align-items-center">
+                              <FontAwesomeIcon
+                                size="lg" icon="chevron-left"/>
+                            </Button>
+                            {/* <Button outline className="d-flex align-items-center">
+                              <FontAwesomeIcon size="lg" icon={['far','play-circle']}/>
+                            </Button> */}
+                            <Button outline>
+                              {` ${currSlide} de ${beslides.length-1} `}
+                            </Button>
+                            <Button onClick={toggleAutoPlay} outline className="d-flex align-items-center">
+                              <FontAwesomeIcon size="lg" icon={autoPlay?['far','pause-circle']:['far','play-circle']}/>
+                            </Button>
+
+                            <Button
+                              onClick={()=>changeHandler(true)}
+                               outline className="d-flex align-items-center">
+                              <FontAwesomeIcon
+                                size="lg"
+                                icon="chevron-right"/>
+                            </Button>
+                          </ButtonGroup>
+                        </div>
                         &nbsp;
-                        <Button
-                          onClick={()=>changeHandler(true)}
-                           outline className="car_next d-flex align-items-center">
-                          <FontAwesomeIcon
-                            size="lg"
-                            icon="chevron-right"/>
-                        </Button>
+
                       </Col>
                     </Row>
                   }
@@ -335,16 +365,21 @@ function BeSlides({match:{path,url},history,location:{hash},beslides,info_beslid
                                          </h3>
                                        </div>
 
-                                    <p className="multiline mt-1 animated fadeInPlace">
-                                      {slide.data.description}
-                                    </p>
+                                         <p className="multiline mt-1 animated fadeInPlace">
+                                           {slide.data.description}
+                                         </p> <br/>
+                                         {slide.data.additional_info&&slide.data.additional_info.link&&
+                                         <a target="_blank" rel="noopener noreferrer" href={slide.data.additional_info.link}>{slide.data.additional_info.text}&nbsp;<FontAwesomeIcon icon="external-link-alt"/></a>}
+
 
                               {slide.data.nested&&slide.data.nested.title&&<>
                                 <div>
                                   <MenuToggle
                                     hasPulse={slide.data.nested&&slide.data.nested.hasPulse}
-                                    collapse={collapse}
-                                    toggle={toggleExpand}/>
+                                    collapse={collapse}/>
+                                    <b>
+                                      {slide.data.nested.title}
+                                    </b>
                                 </div>
                                 <hr/>
                                 <div>

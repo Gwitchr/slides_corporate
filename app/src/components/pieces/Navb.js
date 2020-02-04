@@ -1,119 +1,92 @@
-import React,{Component} from 'react';
-import {NavLink} from 'react-router-dom';
+import React,{useState,useEffect} from 'react';
+// import {NavLink} from 'react-router-dom';
 import {
-  Collapse,
+  // Collapse,
+  Container,
+  NavItem,
+  Row,
+  Col,
   Navbar,
   NavbarToggler,
   NavbarBrand,
   Nav,
+  NavLink
   // NavItem,
   // NavLink as NvLnk
  } from 'reactstrap';
 import {MenuToggle} from '../elements';
+import {motion} from 'framer-motion'
 // import logo from '../../assets/img/logo/logo_full.svg';
 import { ReactComponent as Logo } from '../../assets/img/logo/logo.svg';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {debounce} from '../../utils'
 // import hero_nav from '../assets/nav_bg_1920.png';
 import '../../style/navb.css';
 
-
-export default class Navb extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      isOpen: false,
-      isBelow:false
-
-    }
-  }
-  componentDidMount=()=>{
-    window.addEventListener('scroll',this.checkOffset)
-  }
-  componentWillUnmount=()=>{
-    window.removeEventListener('scroll',this.checkOffset)
-  }
-  checkOffset=()=>{
-    // this.props.getOffsetY(window.scrollY)
-    if(window.scrollY>10){
-      this.setState(()=>({
-        isBelow:true
-      }))
+function Navb(){
+  const [isBelow, setBelow] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const checkOffset=debounce(()=>{
+      if(window.scrollY>10){
+      setBelow(true)
     } else {
-      this.setState(()=>({
-        isBelow:false
-      }))
+      setBelow(false)
     }
-  }
-  toggle=()=> {
-    this.setState({
-      isOpen: !this.state.isOpen
-    });
-  }
-  render() {
-    const {isBelow} = this.state
-    return (
-      <div>
-        <Navbar className={`nav_bar ${isBelow?'nav_below':''}`}
-                fixed={"top"}
-                // color="light"
-                expand="md">
-          <NavbarBrand tag={NavLink} to="/">
-
-              <Logo className='img-fluid logo' />
+  },100)
+  useEffect(()=>{
+    window.addEventListener('scroll',checkOffset)
+    return ()=>window.removeEventListener('scroll',checkOffset)
+    //eslint-disable-next-line
+  },[])
+  const toggle = () => setIsOpen(!isOpen);
+  return(
+    <>
+      <Navbar className={`nav_bar ${isBelow?'nav_below':''}`}
+              fixed={"top"}
+              expand={false}>
+          <NavbarBrand href="/">
+            <Logo className='img-fluid logo' />
           </NavbarBrand>
           <NavbarToggler
             tag={MenuToggle}
+            collapse={isOpen}
             className="toggle-icon-white"
-            onClick={this.toggle}>
+            onClick={toggle}>
           </NavbarToggler>
-          <Collapse isOpen={this.state.isOpen} navbar>
-            {/* <Nav className="ml-auto" navbar>
-              <NavItem className="underline_left">
-                <NavLink  activeClassName="selected" className="nav-link" to="/cotizador">
-                Cotizador
-                </NavLink>
-              </NavItem>
-            </Nav> */}
-            <Nav className="ml-auto" navbar>
-              {/* <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  <NavLink to="/MES">
-                    MES
-                  </NavLink>
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>
-                    <NavLink to="/MES#whatis">
-                      MES/MOM
-                    </NavLink>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <NavLink to="/MES#benefits">
-                    Beneficios
-                    </NavLink>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <NavLink to="/MES#advantages">
-                    Ventajas
-                    </NavLink>
-                  </DropdownItem>
-                  <DropdownItem>
-                    <NavLink to="/MES#features">
-
-                    Características
-                    </NavLink>
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown> */}
-              {/* <NavItem className="underline_left">
-                <NavLink  activeClassName="selected" className="nav-link" to="/exitos">Casos de éxito</NavLink>
-              </NavItem> */}
-              {/* <NavItem className="underline_left">
-                <NvLnk tag={NavLink} activeClassName="active"  to="/contacto">Contacto</NvLnk>
-              </NavItem> */}
-            </Nav>
-          </Collapse>
         </Navbar>
-      </div>
-    );
-  }
+        <Menu isOpen={isOpen} toggle={toggle}/>
+      </>
+  )
 }
+
+function Menu({isOpen}){
+  const animStates = {
+    open:{
+      clipPath:`circle(150% at 91% 4.5%)`,
+      opacity:1
+    },
+    closed:{
+      clipPath:`circle(0% at 91% 4.5%)`,
+      opacity:0
+    }
+  }
+  return(
+    <motion.div
+      initial={false}
+      animate={isOpen ? "open" : "closed"}
+      variants={animStates}
+      className={`circle_menu d-flex flex-column justify-content-around align-items-start`} >
+      <Nav vertical>
+        <NavItem>
+          <NavLink>
+            <FontAwesomeIcon icon={['far','play-circle']}/>
+          </NavLink>
+        </NavItem>
+      </Nav>
+
+
+    </motion.div>
+  )
+}
+
+export default Navb

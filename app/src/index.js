@@ -11,7 +11,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 if(process.env.NODE_ENV==='production'){
-  Sentry.init({dsn: "https://747a35a1e33b43fb97c181cb0c4a8c7f@sentry.io/1823579"});
+  Sentry.init({dsn: "https://8a317910bcf046ffa503579a73e7f350@sentry.io/2170134"});
 }
 
 ReactDOM.render(

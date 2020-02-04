@@ -16,7 +16,8 @@ const MenuToggle = ({ className,toggle, collapse, hasPulse,light,...rest }) => (
       initial={false}
       animate={collapse?'open':'closed'}
     >
-    <button {...rest} className={`${className} menu_toggle btn ${hasPulse&&!collapse?'pulse':''}`} onClick={toggle}>
+    <button {...rest} className={`${className} menu_toggle btn ${hasPulse&&!collapse?'pulse':''}`}>
+    {collapse}
       <svg width="24" height="24" viewBox="0 0 24 24">
         <Path
           light={light}

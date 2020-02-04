@@ -6,6 +6,7 @@ import {Switch,Route} from 'react-router-dom';
 import {
   // Placeholder,
   // Contact,
+  Landing,
   NoMatch,
   // BeSlides
 } from './components/routes';
@@ -54,8 +55,10 @@ class App extends Component<gProps> {
                unmountOnExit={true}>
               <div className="wrapper">
                 <Switch location={location}>
-                  <Route path="/:company/:title" component={BeSlidesCont}/>
-                  <Route path="/:company" component={BeSlidesCont}/>
+                  <Route exact path="/" component={Landing}/>
+                  <Route path="/slides">
+                    <Route path="/slides/:company/:title" component={BeSlidesCont}/>
+                  </Route>
                   <Route path="*" component={NoMatch}/>
                 </Switch>
               </div>

@@ -25,6 +25,10 @@ import {
   faSatellite,
   faAt
 } from '@fortawesome/free-solid-svg-icons'
+import {
+  faPlayCircle,
+  faPauseCircle
+} from '@fortawesome/free-regular-svg-icons'
 
 export const fontawesomeIcons = [
   fab,
@@ -51,5 +55,7 @@ export const fontawesomeIcons = [
   faUserAstronaut,
   faSpaceShuttle,
   faSatellite,
-  faAt
+  faAt,
+  faPlayCircle,
+  faPauseCircle
 ]

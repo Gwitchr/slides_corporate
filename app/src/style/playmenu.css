@@ -1,0 +1,22 @@
+.play_menu{
+  position:fixed;
+  /* top:50vh; */
+  bottom:0;
+  border-radius:.2rem .2rem 0 0 ;
+  /* padding-top:130px; */
+  /* padding-bottom:5rem; */
+  overflow-y: scroll;
+  overflow-x: hidden;
+  z-index: 1001;
+  left:3vw;
+  width:8vw;
+  min-width: 60px;
+  max-height: 40px;
+  min-height: 30px;
+  height:4vh;
+  margin-top:-10vh;
+  background-color: #fff;
+  /* background-color:rgba(255,255,255,.8); */
+  filter:blur(0);
+  box-shadow: 2px 0 10px rgba(0,0,0,.3);
+}
