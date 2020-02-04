@@ -1,6 +1,6 @@
 import React,{useState,useRef,useEffect} from 'react';
 import {CSSTransition,TransitionGroup} from 'react-transition-group'
-import {Container,Row,Col,Collapse,Button,ButtonGroup} from 'reactstrap';
+import {Container,Row,Col,Collapse,Button,ButtonGroup,Progress} from 'reactstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 // import {motion} from 'framer-motion';
 import {SEO} from '../elements';
@@ -21,6 +21,7 @@ import {
   MOBILE_BREAKPOINT,
   // DELAY_SLIDES
 } from '../../constants/beslides'
+import {useInterval} from '../../hooks';
 // import animIntro from '../../assets/bodym/sending.json'
 // import tools from '../../assets/bodym/services/beslides/tools.json'
 import '../../style/beslides.css';
@@ -36,6 +37,8 @@ function BeSlides({match:{path,url},history,location:{hash},beslides,info_beslid
   const [canChange,setCanChange] = useState(true)
   const [autoPlay,setAutoPlay] = useState(true)
 
+  const [currTime,setCurrTime] = useState(5000)
+
   const [slide,slideIn] = useState(false)
   const [payment,setPayment] = useState(false)
 
@@ -49,7 +52,6 @@ function BeSlides({match:{path,url},history,location:{hash},beslides,info_beslid
   } = beslides[currSlide]
 
   // console.log('beslides[currSlide]',beslides[currSlide])
-
   const toggleMenu=(flag)=>{
     setPayment(flag)
     slideIn(!slide)
@@ -73,14 +75,19 @@ function BeSlides({match:{path,url},history,location:{hash},beslides,info_beslid
       clearTimeout(changer.current)
       changer.current=setTimeout(()=>{
         changeSlide(true,true)
-    },delayDef)
+      },delayDef)
 
     }
     return ()=>clearTimeout(changer.current)
   }
+  useInterval(()=>{
+    const quota = 10000/beslides[currSlide].delay
+    setCurrTime(Math.floor(currTime-quota))
+  },autoPlay?100:null)
   useEffect(()=>{
     if(autoPlay){
       autoChange(beslides[currSlide].delay)
+      setCurrTime(100)
     } else {
       clearTimeout(changer.current)
     }
@@ -270,6 +277,11 @@ function BeSlides({match:{path,url},history,location:{hash},beslides,info_beslid
                                 icon="chevron-right"/>
                             </Button>
                           </ButtonGroup>
+                          <Progress
+                            color="info"
+                            className=""
+                            value={currTime}
+                            style={{height:'2px'}}/>
                         </div>
                         &nbsp;
 

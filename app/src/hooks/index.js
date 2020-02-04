@@ -26,7 +26,7 @@ export function useVisible(theRef,defVal){
 export function useInterval(callback, delay) {
   const savedCallback = useRef();
 
-  // Remember the latest function.
+  // Remember the latest callback.
   useEffect(() => {
     savedCallback.current = callback;
   }, [callback]);
@@ -36,7 +36,9 @@ export function useInterval(callback, delay) {
     function tick() {
       savedCallback.current();
     }
-    let id = setInterval(tick, delay);
-    return () => clearInterval(id);
+    if (delay !== null) {
+      let id = setInterval(tick, delay);
+      return () => clearInterval(id);
+    }
   }, [delay]);
 }

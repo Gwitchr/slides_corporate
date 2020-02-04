@@ -76,13 +76,19 @@ function Menu({isOpen}){
       animate={isOpen ? "open" : "closed"}
       variants={animStates}
       className={`circle_menu d-flex flex-column justify-content-around align-items-start`} >
-      <Nav vertical>
-        <NavItem>
-          <NavLink>
-            <FontAwesomeIcon icon={['far','play-circle']}/>
-          </NavLink>
-        </NavItem>
-      </Nav>
+      <Container>
+        <Row>
+          <Col>
+            <Nav vertical>
+              <NavItem>
+                <NavLink>
+                  <FontAwesomeIcon icon={['far','play-circle']}/>
+                </NavLink>
+              </NavItem>
+            </Nav>
+          </Col>
+        </Row>
+      </Container>
 
 
     </motion.div>
