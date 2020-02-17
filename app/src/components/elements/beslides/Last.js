@@ -55,7 +55,7 @@ function Last({toggle,reset,cardImg,
              rel="noopener noreferrer"
             href={companyData?companyData.contact_link:''}
             >
-            Contáctanos
+            {companyData?companyData.contact_text:'Contáctanos'}
           </Button>
       </CardFooter>
       </Card></Col>

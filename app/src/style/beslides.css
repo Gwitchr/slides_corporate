@@ -6,6 +6,10 @@
   transition: filter .2s ease;
 }
 
+.full_img{
+  max-height: 90vh;
+}
+
 .logo_intro{
   width:auto;
   height: 25vh;
@@ -56,7 +60,7 @@
 /* custom elements */
 /* clients */
 .img_client{
-  width:8vw;
+  width:12vw;
   /* max-width: 200px; */
   /* min-width: 100px; */
   /* max-height: 150px; */

@@ -1,3 +1,142 @@
+.home{
+  background: var(--soft-gray)
+}
+
+/* .progr_circle{
+
+} */
+
+.progr_circle circle {
+  stroke:var(--info);
+  fill:transparent;
+  transition: stroke-dashoffset .1s ease;
+}
+
+.feature_menu_item{
+  transition: all .2s ease;
+}
+
+.feature_menu_item.active{
+  background:white;
+  border-radius: .25rem;
+}
+
+.feat_cont{
+  min-height: 100vh;
+}
+.feature_img{
+  position: absolute;
+}
+/* use cases section */
+.usecases_cont{
+  overflow-x:hidden;
+  min-height: 140vh;
+}
+.card_placeholder{
+  opacity: 0;
+}
+
+.card_cust_overlay{
+  position: absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+}
+.img_holder_cust_card{
+  position: relative;
+}
+.img_holder_cust_card:after{
+  content:'';
+  background:var(--light);
+  position: absolute;
+  transform: skewX(5deg);
+  margin-right: -5%;
+  right:0;
+  top:0;
+  bottom:0;
+  width:10%;
+}
+
+.customer_story_card img{
+  height: 100%;
+  /* background-size: 50%; */
+  max-height: 35vh;
+  object-fit:contain;
+}
+
+.customer_story_text{
+  position: absolute;
+  top:0;
+  z-index: 1;
+  min-height: 50vh;
+  width:100%;
+
+}
+
+.cust_text_holder{
+  background:rgba(0,0,0,.5);
+}
+
+.customer_color{
+  display: inline-block;
+  width:16px;
+  height: 16px;
+  border-radius: calc(.25rem - 1px);
+}
+
+.control_client_prev,.control_client_next{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15%;
+  opacity: .75;
+  text-align: center;
+  opacity: .5;
+  transition: opacity .15s ease;
+  cursor: pointer;
+  background: transparent;
+  border:none;
+}
+.control_client_prev:hover,.control_client_next:hover{
+  opacity: 1;
+}
+
+.control_client_prev{
+  left:0;
+  margin-left: -10%;
+}
+.control_client_next{
+  right:0;
+  margin-right: -10%;
+}
+
+.usecase_img_prev,.usecase_img_next{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 35%;
+}
+
+.usecase_img_prev{
+  left:0;
+  margin-left: -25%;
+}
+.usecase_img_next{
+  right:0;
+  margin-right: -25%;
+}
+
+
+
 .placeholder{
   overflow-y: hidden;
 }

@@ -11,8 +11,11 @@
   --secondary-tone-2:#f58931;
   --main-color:#28ab4a;
   --dark-contrast:#302f3d;
+  --soft-gray:#e9ecef;
   /* --primary:; */
 }
+
+
 
 html{
   scroll-behavior: smooth;

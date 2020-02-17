@@ -6,3 +6,4 @@ export {default as ChartSlide} from './ChartSlide';
 export {default as Clients} from './Clients';
 export {default as Last} from './Last';
 export {default as Map} from './Map';
+export {default as Full} from './Full';

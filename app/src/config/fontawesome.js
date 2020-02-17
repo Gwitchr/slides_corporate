@@ -23,7 +23,10 @@ import {
   faUserAstronaut,
   faSpaceShuttle,
   faSatellite,
-  faAt
+  faAt,
+  faChartBar,
+  faCarrot
+
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faPlayCircle,
@@ -56,6 +59,8 @@ export const fontawesomeIcons = [
   faSpaceShuttle,
   faSatellite,
   faAt,
+  faChartBar,
   faPlayCircle,
-  faPauseCircle
+  faPauseCircle,
+  faCarrot
 ]

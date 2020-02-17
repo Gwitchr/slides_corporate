@@ -13,7 +13,15 @@ import {
   PaymentHandlerCont
 } from '../../containers/beslides';
 import {ContactCont} from '../../containers';
-import {First,AnimSlide,ChartSlide,Last,Clients,Map} from '../elements/beslides';
+import {
+  First,
+  AnimSlide,
+  ChartSlide,
+  Last,
+  Clients,
+  Map,
+  Full
+} from '../elements/beslides';
 import {MenuToggle} from '../elements';
 import {
   TRANS_TIMEOUT,
@@ -47,6 +55,7 @@ function BeSlides({match:{path,url},history,location:{hash},beslides,info_beslid
     data,
     colSize,
     graphs,
+    cols,
     // delay,
     identifier
   } = beslides[currSlide]
@@ -82,10 +91,10 @@ function BeSlides({match:{path,url},history,location:{hash},beslides,info_beslid
   }
   useInterval(()=>{
     const quota = 10000/beslides[currSlide].delay
-    setCurrTime(Math.floor(currTime-quota))
+    setCurrTime(Math.ceil(currTime-quota))
   },autoPlay?100:null)
   useEffect(()=>{
-    if(autoPlay){
+    if(autoPlay||currSlide===0){
       autoChange(beslides[currSlide].delay)
     } else {
       clearTimeout(changer.current)
@@ -100,6 +109,16 @@ function BeSlides({match:{path,url},history,location:{hash},beslides,info_beslid
       setSlideMatch()
     // eslint-disable-next-line
   },[beslides])
+  useEffect(()=>{
+    if(info_beslides.starts_open&&!collapse){
+      setCollapse(true)
+    }
+    if(info_beslides.autoplay!==undefined){
+      setAutoPlay(info_beslides.autoplay)
+    }
+
+    // eslint-disable-next-line
+  },[info_beslides])
   const resetSlides=()=>{
     goToHandler(0)
   }
@@ -136,7 +155,7 @@ function BeSlides({match:{path,url},history,location:{hash},beslides,info_beslid
   const changeHandler=async(dir)=>{
     await setDirection(dir)
     await changeSlide(dir)
-    if(collapse)toggleExpand()
+    if(collapse&&!info_beslides.starts_open)toggleExpand()
   }
   const toggleAutoPlay=()=>{
     setAutoPlay(!autoPlay)
@@ -146,7 +165,7 @@ function BeSlides({match:{path,url},history,location:{hash},beslides,info_beslid
   }
   return(
     <>
-      <SEO title={info_beslides.name} description="Compartir información de una manera profesional y efectiva"/>
+      <SEO title={info_beslides.customer.company} description="Compartir información de una manera profesional y efectiva"/>
       <SlideMenu className="" slideMenu={slide} toggleMenu={toggleMenu}>
         {payment
           ?<PaymentHandlerCont visible={slide}/>
@@ -196,6 +215,10 @@ function BeSlides({match:{path,url},history,location:{hash},beslides,info_beslid
                                      </p> <br/>
                                      {data.additional_info&&data.additional_info.link&&
                                      <a target="_blank" rel="noopener noreferrer" href={data.additional_info.link}>{data.additional_info.text}&nbsp;<FontAwesomeIcon icon="external-link-alt"/></a>}
+                                     {data.attention&&<>
+                                       <p><b className="pulse text-warning">{data.attention}</b></p>
+                                       <br/>
+                                      </>}
                                    </>
 
                               </CSSTransition>
@@ -238,16 +261,20 @@ function BeSlides({match:{path,url},history,location:{hash},beslides,info_beslid
                       title={info_beslides.title}
                       company={info_beslides.customer.company}
                      logo={intro&&intro.logo}/>
-                    : <Last
+                    : intro.last
+                    ?<Last
                       toggle={toggleMenu}
                       reset={resetSlides}
                       companyData={intro&&intro.companyData}
                       cardImg={intro&&intro.card_img}/>
+                    :intro.full
+                    ? <Full full_img={intro.full_img}/>
+                    : null
                     : null
                   }
 
                   {
-                    !intro&&<Row className="w-100">
+                    !intro&&<Row className="w-100 align-self-end mt-auto">
                       <Col className="d-flex justify-content-between mt-auto mb-4">
 
                         &nbsp;
@@ -300,7 +327,7 @@ function BeSlides({match:{path,url},history,location:{hash},beslides,info_beslid
                   </Row>}
                 </Col>
                 {graphs
-                  ?<Col xs={8} className="px-0 graph_cont animated fadeInPlace">
+                  ?<Col xs={cols===2?8:12} className="px-0 graph_cont animated fadeInPlace">
                         <TransitionGroup
                           appear={true}
                           exit={true}>
