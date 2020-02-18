@@ -91,7 +91,7 @@ function BeSlides({match:{path,url},history,location:{hash},beslides,info_beslid
   }
   useInterval(()=>{
     const quota = 10000/beslides[currSlide].delay
-    setCurrTime(Math.ceil(currTime-quota))
+    setCurrTime((currTime-quota).toFixed(1))
   },autoPlay?100:null)
   useEffect(()=>{
     if(autoPlay||currSlide===0){
