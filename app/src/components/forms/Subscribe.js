@@ -39,7 +39,7 @@ export default class Subscribe extends Component{
     })
   }
   render(){
-    const { isPosting , message , isStacked , error} = this.props
+    const { isPosting , message , isStacked , error, buttonColor, light} = this.props
     const { progr } = this.state
     return(
       <div>
@@ -49,11 +49,11 @@ export default class Subscribe extends Component{
               isPosting
               ? <Progress value={progr} animated />
               : <FormGroup className="text-center">
-                  <Input onChange={this.getValue} className="custom" type="email" placeholder="Tu correo" name="email"/>
+                  <Input onChange={this.getValue} className={`custom ${light?'text-light':''}`} type="email" placeholder="Tu correo" name="email"/>
                       <Button onClick={this.sendInfo}
                               block
                               className="hvr_top mt-1"
-                              color="primary">
+                              color={buttonColor?buttonColor:''}>
                         Suscribirse <i className="fas fa-paper-plane"/>
                       </Button>
                 </FormGroup>
@@ -64,11 +64,11 @@ export default class Subscribe extends Component{
               isPosting
               ? <Progress value={progr} animated />
               : <InputGroup className="text-center">
-                  <Input onChange={this.getValue} className="custom" type="email" placeholder="Tu correo" name="email"/>
+                  <Input onChange={this.getValue} className={`custom ${light?'text-light':''}`} type="email" placeholder="Tu correo" name="email"/>
                     <InputGroupAddon addonType="append">
                       <Button onClick={this.sendInfo}
                               className="hvr_top"
-                              color="primary">
+                              color={buttonColor?buttonColor:''}>
                         Suscribirse <i className="fas fa-paper-plane"/>
                       </Button>
                     </InputGroupAddon>

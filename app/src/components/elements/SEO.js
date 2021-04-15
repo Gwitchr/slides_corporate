@@ -6,6 +6,8 @@ import {
   DEFAULT_TITLE,
   DEFAULT_DESCRIPTION,
   SOCIAL,
+  URL,
+  LOCATION
   // address,
   // contact,
   // legalName,
@@ -86,7 +88,6 @@ function SEO({
   description,
   lang='es-MX',
   meta,
-  url,
   title,
   type,
   social,
@@ -105,11 +106,11 @@ function SEO({
     {/* The thumbnail of your website */}
     <meta
       name="image"
-      content={cover ? `${cover}` : `${Thumbnail}`}
+      content={cover ? `${URL}${cover}` : `${URL}${Thumbnail}`}
     />
 
     {/* Opengraph meta tags for Facebook & LinkedIn */}
-    <meta property="og:url" content={`${url}${location}/?ref=n12.mx`} />
+    <meta property="og:url" content={`${URL}/${location?location:LOCATION}/?ref=n12.mx`} />
     <meta
       property="og:type"
       content={type === 'NewsArticle' ? 'NewsArticle' : 'website'}
@@ -124,7 +125,7 @@ function SEO({
     />
     <meta
       property="og:image"
-      content={cover ? `${cover}` : `${Thumbnail}`}
+      content={cover ? `${cover}` : Thumbnail}
     />
 
     {/* You can get this id when you create an app id on Facebook of your Facebook page */}
@@ -136,7 +137,7 @@ function SEO({
     <meta name="twitter:site" content={SOCIAL.twitter} />
     <meta
       name="twitter:title"
-      content={title ? `Smakosh | ${title}` : DEFAULT_TITLE}
+      content={title ? `BeSlides | ${title}` : DEFAULT_TITLE}
     />
     <meta
       name="twitter:description"

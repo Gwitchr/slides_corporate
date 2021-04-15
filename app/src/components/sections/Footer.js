@@ -11,11 +11,11 @@ import '../../style/footer.css';
 
 const Footer=()=>{
   return (
-    <Container tag="footer" fluid className="footer text-light py-0 pt-5 pb-5 text-left animated fadeInPlace">
+    <Container tag="footer" fluid className="footer text-light b-5 text-left animated fadeInPlace">
       <Container className="">
       <Row className="justify-content-between align-items-center">
           <Col xs={12} md={2}  className="mb-5 d-flex flex-column justify-content-start">
-            <img src={logo} className="img-fluid logo-footer mx-auto" alt=""/>
+            <img src={logo} className="img-fluid logo_footer mx-auto" alt=""/>
           </Col>
           <Col xs={12} md={10}>
             <Container>

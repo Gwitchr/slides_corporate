@@ -56,6 +56,9 @@ class App extends Component<gProps> {
               <div className="wrapper">
                 <Switch location={location}>
                   <Route exact path="/" component={Landing}/>
+                  <Route path="/pricing">
+
+                  </Route>
                   <Route path="/slides">
                     <Route path="/slides/:company/:title" component={BeSlidesCont}/>
                   </Route>

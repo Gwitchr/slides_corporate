@@ -1,3 +1,4 @@
+import 'url-search-params-polyfill';
 import React,{useEffect} from 'react';
 import {connect} from 'react-redux';
 import {BeSlides} from '../components/routes';

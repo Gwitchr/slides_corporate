@@ -32,7 +32,7 @@ export const api_public = {
   postOffer(dataOffer){
     let init
     init = setHJson(init,'POST',dataOffer)
-    return fetch(`${API}/public/coupon`,init)
+    return fetch(`${API}/public/coupons`,init)
     .then(fetchStatus)
     .catch(getErrors)
   },

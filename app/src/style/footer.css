@@ -1,5 +1,6 @@
 .footer {
   background:#0A0E17;
+  padding-top:20vh;
 }
 
 .bg_yellow {
@@ -44,6 +45,7 @@
   display: inline
 }
 
-.logo-footer{
-  max-width: 40vw;
+.logo_footer{
+  max-width:7vw;
+  min-width: 60px;
 }

@@ -12,6 +12,11 @@
   --main-color:#28ab4a;
   --dark-contrast:#302f3d;
   --soft-gray:#e9ecef;
+  --bsl-purlple-dark:#1c0640;
+  --bsl--compl-orange:#ffb048;
+  --bsl--compl-blue:#6bd3e8;
+  --bsl--compl-red:#e8425f;
+  --bsl--compl-purple:#8755ff;
   /* --primary:; */
 }
 
@@ -36,7 +41,15 @@ h3{
 .multiline{
   white-space: pre-line;
 }
-
+.trans_sect{
+  position:absolute;
+  background-size:auto 100%;
+  background-repeat:no-repeat;
+  overflow-x: hidden;
+  left:0;
+  width:100vw;
+  height: 100vh;
+}
 
 /* .animSend{
   max-height: 400px;
@@ -93,6 +106,9 @@ h3{
 }
 
 /* Global modifiers */
+.sect_30{
+  min-height: 30vh;
+}
 .sect_50{
   min-height: 50vh;
 }

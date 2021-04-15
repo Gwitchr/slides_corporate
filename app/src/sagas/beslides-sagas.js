@@ -3,10 +3,10 @@ import * as actions from '../redux/actions/beslides-actions';
 import {add_toast} from '../redux/actions/toasts-actions';
 import {api_public} from '../services';
 
-function* getBeslidesData({beslides_name}){
+function* getBeslidesData({beslidesURL}){
   yield put(actions.request_beslides())
   try {
-    const response = yield call(api_public.getOneBeslides,beslides_name)
+    const response = yield call(api_public.getOneBeslides,beslidesURL)
     if(response.error){
       yield put(actions.error_beslides(response.error))
       yield put(add_toast({

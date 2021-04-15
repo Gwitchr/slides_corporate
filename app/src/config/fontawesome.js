@@ -16,7 +16,6 @@ import {
   faQuestionCircle,
   faPlusCircle,
   faMinusCircle,
-  faPalette,
   faIndustry,
   faComments,
   faMobile,
@@ -25,7 +24,9 @@ import {
   faSatellite,
   faAt,
   faChartBar,
-  faCarrot
+  faCarrot,
+  faPalette,
+  faCameraRetro
 
 } from '@fortawesome/free-solid-svg-icons'
 import {
@@ -51,7 +52,6 @@ export const fontawesomeIcons = [
   faQuestionCircle,
   faPlusCircle,
   faMinusCircle,
-  faPalette,
   faIndustry,
   faComments,
   faMobile,
@@ -62,5 +62,7 @@ export const fontawesomeIcons = [
   faChartBar,
   faPlayCircle,
   faPauseCircle,
-  faCarrot
+  faCarrot,
+  faPalette,
+  faCameraRetro
 ]

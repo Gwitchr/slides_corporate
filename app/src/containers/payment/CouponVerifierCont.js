@@ -1,3 +1,4 @@
+import 'url-search-params-polyfill';
 import React from 'react';
 import {connect} from 'react-redux';
 import {CouponVerifier} from '../../components/forms/payment';

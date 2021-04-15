@@ -20,12 +20,24 @@
   background:white;
   border-radius: .25rem;
 }
-
+.sect_title{
+  font-size: 30pt;
+}
 .feat_cont{
   min-height: 100vh;
 }
+.color_sect{
+  background-color: var(--bsl-purlple-dark);
+}
 .feature_img{
   position: absolute;
+}
+
+.color_sect .link_how{
+  color:#fff;
+}
+.color_sect .nav-link.active{
+  color:#3c3c3c;
 }
 /* use cases section */
 .usecases_cont{
@@ -158,6 +170,27 @@
   margin-top:6rem;
   font-size: 18pt;
   letter-spacing: 18pt;
+}
+
+.plan_title{
+  font-size: 32pt;
+  font-weight: 700;
+}
+
+.card_plans.bg_orange{
+  background:var(--bsl--compl-orange);
+}
+.card_plans.bg_red{
+  background:var(--bsl--compl-blue);
+}
+.card_plans.bg_purple{
+  background:var(--bsl--compl-purple);
+}
+
+.subs_land_cont{
+  background-image:linear-gradient(to left,var(--bsl-purlple-dark),#6d0ff2 );
+  margin-bottom:-10vh;
+  z-index: 2;
 }
 
 

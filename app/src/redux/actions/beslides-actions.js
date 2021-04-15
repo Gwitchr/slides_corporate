@@ -7,9 +7,9 @@ export const RESET_BESLIDES = "RESET_BESLIDES"
 export const SET_ONE_BESLIDES = "SET_ONE_BESLIDES"
 export const SET_INFO_BESLIDES = "SET_INFO_BESLIDES"
 
-export const start_get_beslides=(beslides_name)=>({
+export const start_get_beslides=(beslidesURL)=>({
   type:START_GET_BESLIDES,
-  beslides_name
+  beslidesURL
 })
 
 export const request_beslides=()=>({

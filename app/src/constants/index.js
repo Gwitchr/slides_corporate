@@ -1,5 +1,6 @@
 export const AUTHOR = "luiscasillas@n12.mx";
 export const DEFAULT_DESCRIPTION = "Presentaciones elegantes y efectivas";
+export const LOCATION ="";
 export const URL = "https://www.beslides.app";
 export const DEFAULT_TITLE = "BeSlides";
 export const SOCIAL = {

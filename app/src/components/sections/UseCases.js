@@ -72,7 +72,7 @@ function UseCases({useCases=[{
 
         <Row className="text-center">
           <Col>
-            <motion.h3 >
+            <motion.h3 className="sect_title" >
               BeSlides son
               <br/><b className="text_underlined">perfectas para</b>
             </motion.h3>
